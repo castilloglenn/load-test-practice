@@ -8,4 +8,10 @@ curl:
 	curl http://127.0.0.1:8000
 
 test:
-	poetry run locust -f tests/load/test_locustfile.py --host http://127.0.0.1:8000
+	poetry run locust \
+		-f tests/load/test_locustfile.py \
+		--host http://127.0.0.1:8000 \
+		--headless \
+		-u 1000 \
+		-r 10 \
+		--run-time 2m
